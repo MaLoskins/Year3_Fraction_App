@@ -1,0 +1,725 @@
+/* ============================= */
+/*          CSS VARIABLES        */
+/* ============================= */
+:root {
+    /* ========================= */
+    /*         Colors            */
+    /* ========================= */
+    /* Unified Theme Colors */
+    --color-primary: #2c3e50;
+    --color-secondary: #16a085;
+    --color-accent: #3498db;
+    --color-background: #2c3e50;
+    --color-text: #ecf0f1; /* Light text for better contrast */
+    --color-header: #95a5a6;
+    --color-row-bg: #34495e;
+    --color-row-hover: #3d566e;
+    --color-border: #7f8c8d;
+    --color-sub-border: #95a5a6;
+    --color-modal-bg: #34495e;
+    --color-remove-hover: #e74c3c;
+    --color-remove-bg: transparent;
+
+    /* ========================= */
+    /*         Typography         */
+    /* ========================= */
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-sm: 0.875rem;
+    --line-height: 1.6;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* ========================= */
+    /*          Spacing           */
+    /* ========================= */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* ========================= */
+    /*        Dimensions          */
+    /* ========================= */
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2);
+    --button-height: 50px;
+
+    /* ========================= */
+    /*        Other Settings      */
+    /* ========================= */
+    --remove-button-size: 16px;
+    --modal-width: 90%;
+    --modal-max-width: 500px;
+}
+
+/* ============================= */
+/*      Reset Default Styles     */
+/* ============================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default list styles */
+ul, ol {
+    list-style: none;
+}
+
+/* Remove default link styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================= */
+/*          Body Styling         */
+/* ============================= */
+body {
+    font-family: var(--font-family-base);
+    text-align: center;
+    background-color: var(--color-background);
+    padding: var(--spacing-lg);
+    color: var(--color-text);
+    line-height: var(--line-height);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* ============================= */
+/*         Header Styling        */
+/* ============================= */
+header {
+    margin-bottom: var(--spacing-lg);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--color-header);
+    font-weight: var(--font-weight-normal);
+}
+
+/* ============================= */
+/*      Explanation Section      */
+/* ============================= */
+.explanation {
+    background-color: #44515e; /* Consider using a CSS variable for consistency */
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--box-shadow);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.explanation h2 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.explanation p {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-md);
+}
+
+/* ============================= */
+/*       Fraction Visual         */
+/* ============================= */
+.fraction-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.fraction-visual .whole {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #44515e; /* Consider using a CSS variable for consistency */
+    border: 3px solid var(--color-sub-border);
+    opacity: 0.9;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    box-shadow: var(--box-shadow);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.fraction-visual .whole:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.fraction-visual .half {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--color-accent);
+    border-right: 1px solid var(--color-sub-border);
+    border-radius: 0; /* Ensures square edges */
+}
+
+.fraction-visual span {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-top: var(--spacing-xs);
+}
+
+/* ============================= */
+/*        Main Grid Styling      */
+/* ============================= */
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-xl) auto;
+    padding: 0 var(--spacing-md);
+}
+
+.main-grid {
+    width: 100%;
+    border: 2px solid var(--color-border);
+    background-color: #44515e; /* Consider using a CSS variable for consistency */
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: box-shadow var(--transition-speed);
+}
+
+.main-grid:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* ============================= */
+/*        Grid Row Styling       */
+/* ============================= */
+.grid-row {
+    display: flex;
+    align-items: center;
+    height: 60px; /* Reduced height from 80px to 60px */
+    border-bottom: 1px solid #44515e; /* Consider using a CSS variable */
+    position: relative;
+    background-color: var(--color-row-bg);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+    padding: 0 var(--spacing-xs);
+}
+
+.grid-row:last-child {
+    border-bottom: none;
+}
+
+.grid-row:hover {
+    background-color: var(--color-row-hover);
+}
+
+.grid-row:focus-within {
+    background-color: var(--color-row-hover);
+    outline: 2px solid var(--color-secondary);
+}
+
+/* ============================= */
+/*          Row Header           */
+/* ============================= */
+.row-header {
+    width: 80px;
+    padding: var(--spacing-sm);
+    background-color: var(--color-primary);
+    color: #ecf0f1;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    border-right: 1px solid var(--color-border);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+/* ============================= */
+/*       Row Content Area        */
+/* ============================= */
+.row-content {
+    flex: 1;
+    display: flex;
+    align-items: center; /* Center vertically */
+    min-height: 60px; /* Increased to 80px for better spacing */
+    padding: var(--spacing-xs);
+    background-color: var(--color-background);
+    position: relative;
+    overflow-x: auto;
+    transition: background-color var(--transition-speed);
+    gap: 0px; /* Space between fractions */
+}
+
+/* ============================= */
+/*        Row Total Display      */
+/* ============================= */
+.row-total {
+    width: 150px;
+    padding: var(--spacing-sm);
+    text-align: left;
+    font-weight: var(--font-weight-bold);
+    background-color: var(--color-background);
+    border-left: 1px solid var(--color-border);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: background-color var(--transition-speed);
+    color: var(--color-text);
+}
+
+.row-total:hover {
+    background-color: #f1f1f1; /* Consider using a CSS variable for better consistency */
+    color: var(--color-text);
+}
+
+/* ============================= */
+/*     Fraction Container Styling */
+/* ============================= */
+.fraction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.fraction-container h2 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-secondary);
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.fraction-category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.fraction-category h3 {
+    width: 100%;
+    text-align: left;
+    color: #2980b9;
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+}
+
+/* ============================= */
+/*        Fraction Bar Styling   */
+/* ============================= */
+.fraction-bar {
+    height: 50px;
+    line-height: 50px;
+    color: var(--color-text);
+    cursor: grab;
+    border-radius: var(--border-radius);
+    user-select: none;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    transition: transform 0.2s, box-shadow 0.2s, background-color var(--transition-speed);
+    min-width: 60px;
+    flex-shrink: 0;
+    border: 3px solid #ecf0f1; 
+    background-color: var(--color-accent); /* Default accent color */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Added for better text visibility */
+    touch-action: none; /* Prevent default touch actions */
+}
+
+.fraction-bar:active {
+    transform: scale(1.00);
+}
+
+.fraction-bar:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+.fraction-bar:focus {
+    outline: 2px solid var(--color-secondary);
+}
+
+/* Specific Fraction Colors */
+.fraction-1 {
+    background-color: #E91E63; /* Pink */
+}
+
+.fraction-1-2 {
+    background-color: #F44336; /* Red */
+}
+
+.fraction-1-3 {
+    background-color: #FF5722; /* Orange */
+}
+
+.fraction-1-4 {
+    background-color: #FF9800; /* Yellow */
+}
+
+.fraction-1-5 {
+    background-color: #8BC34A; /* Green */
+}
+
+.fraction-1-6 {
+    background-color: #00BCD4; /* Light Teal */
+}
+
+.fraction-1-8 {
+    background-color: #2196F3; /* Blue */
+}
+
+.fraction-1-10 {
+    background-color: #9C27B0; /* Purple */
+}
+
+.fraction-1-12 {
+    background-color: #673AB7; /* Deep Purple */
+}
+
+/* ============================= */
+/*        Control Panel Styling  */
+/* ============================= */
+.control-panel {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.control-panel button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    transition: background-color var(--transition-speed), transform 0.2s, box-shadow var(--transition-speed);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    box-shadow: var(--box-shadow);
+    height: var(--button-height);
+}
+
+.control-panel button:hover {
+    background-color: #2980b9; /* Using a consistent darker shade for hover */
+    box-shadow: var(--box-shadow-hover);
+}
+
+.control-panel button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.control-panel button:focus {
+    outline: 2px solid var(--color-secondary);
+}
+
+/* ============================= */
+/*        Info Modal Styling     */
+/* ============================= */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    transition: opacity var(--transition-speed);
+}
+
+.modal.show {
+    display: block;
+    animation: fadeIn var(--transition-speed) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--color-modal-bg);
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    width: 80%;
+    max-width: var(--modal-max-width);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.modal-content::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.close-button {
+    color: #ecf0f1;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    transform: scale(1.2);
+    text-decoration: none;
+}
+
+/* ============================= */
+/*      Dropped Fraction Styling */
+/* ============================= */
+.dropped-fraction {
+    height: 60px; 
+    cursor: default;
+    user-select: none;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.5s;
+    margin-right: 0px; /* Space between fractions */
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; 
+    border-radius: 0px; 
+    background-color: var(--color-background); 
+    width: 0; /* Initial width */
+    overflow: hidden; /* Hide any overflow */
+}
+
+.dropped-fraction .fraction-bar {
+    border-radius: 0; /* Removes rounded corners within the table */
+    width: 100%; /* Ensure the fraction bar fills the container */
+}
+
+/* Hover and Focus States for Dropped Fraction */
+.dropped-fraction:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--color-header); /* Adds a border on hover */
+    transform: translateY(-2px);
+}
+
+.dropped-fraction:focus-within {
+    outline: 2px solid var(--color-secondary);
+}
+
+/* ============================= */
+/*      Remove Fraction Button   */
+/* ============================= */
+.remove-fraction {
+    position: absolute;
+    top: 14px; 
+    right: 20px; 
+    width: var(--remove-button-size);
+    height: var(--remove-button-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px; /* Increased font size */
+    cursor: pointer;
+    opacity: 0.4; /* Slightly increased opacity */
+    transition: opacity var(--transition-speed), transform var(--transition-speed), background-color var(--transition-speed);
+    z-index: 10; /* Ensures the button is above other elements */
+    border-radius: 50%; /* Make it circular */
+    background-color: var(--color-remove-bg);
+    color: var(--color-primary);
+}
+
+.remove-fraction:hover {
+    opacity: 1;
+    background-color: var(--color-remove-hover); /* Darker red on hover for better visibility */
+    color: #fff; /* Ensure the 'X' is visible on hover */
+    transform: scale(1.2);
+}
+
+/* ============================= */
+/*         Control Modes         */
+/* ============================= */
+.main-grid.drawing {
+    cursor: crosshair;
+}
+
+.main-grid.erasing {
+    cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFElEQVQoU2NkYGD4z0AEYBxVSFQFAAECHgIbY5HTAAAAAElFTkSuQmCC') 4 12, auto;
+}
+
+/* ============================= */
+/*      Fraction Sum Display     */
+/* ============================= */
+#fractionSum {
+    margin-top: var(--spacing-sm);
+    font-size: 1.2rem;
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ============================= */
+/*   Feedback Message Styling    */
+/* ============================= */
+.feedback-message {
+    z-index: 1001;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
+    color: var(--color-text);
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2ecc71;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    opacity: 1;
+}
+
+/* ============================= */
+/*        Responsive Design      */
+/* ============================= */
+@media (max-width: 1024px) {
+    .fraction-visual {
+        flex-direction: column;
+    }
+
+    .fraction-visual .whole {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-grid {
+        width: 100%;
+    }
+
+    .grid-row {
+        height: 50px;
+    }
+
+    .row-header {
+        width: 60px;
+        font-size: 0.9rem;
+        padding: var(--spacing-xs) 5px; 
+    }
+
+    .fraction-bar {
+        height: 40px;
+        line-height: 40px;
+        font-size: 0.8rem;
+        min-width: 50px;
+    }
+
+    .dropped-fraction {
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .remove-fraction {
+        width: 12px; 
+        height: 12px; 
+        font-size: 12px;
+        top: 8px; 
+        right: 12px;
+    }
+
+    .control-panel button {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        height: 40px;
+    }
+
+    .row-total {
+        width: 120px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fraction-container h2,
+    .fraction-category h3 {
+        font-size: 1rem;
+    }
+
+    .fraction-visual span {
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        width: var(--modal-width);
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .explanation h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================= */
+/*          Accessibility        */
+/* ============================= */
+/* Focus Styles for Keyboard Navigation */
+button:focus,
+.remove-fraction:focus,
+.close-button:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+/* Visually Hidden Class for Screen Readers */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px; 
+    width: 1px; 
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+}
+
+/* ============================= */
+/*          Animations           */
+/* ============================= */
+/* Smooth fade-in for modal */
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal.show .modal-content {
+    animation: fadeInModal var(--transition-speed) forwards;
+}

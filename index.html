@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Fraction Fun</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Interactive Fraction Fun</h1>
+        <p>Learn and play with fractions!</p>
+    </header>
+
+    <!-- Explanatory Section -->
+    <section class="explanation">
+        <h2>What are Fractions?</h2>
+        <p>A fraction represents a part of a whole. The top number is the numerator, and the bottom number is the denominator.</p>
+        <div class="fraction-visual">
+            <div class="whole">
+                <div class="half"></div>
+                <div class="half"></div>
+            </div>
+            <span>1/2 + 1/2 = 1</span>
+        </div>
+    </section>
+
+    <!-- Main Grid/Container -->
+    <section class="main-container">
+        <div class="main-grid" id="mainGrid">
+            <!-- Grid Rows with Total Display -->
+            <div class="grid-row" data-row="1">
+                <div class="row-header">Row 1</div>
+                <div class="row-content"></div>
+                <div class="row-total">Total: 0</div>
+            </div>
+            <div class="grid-row" data-row="2">
+                <div class="row-header">Row 2</div>
+                <div class="row-content"></div>
+                <div class="row-total">Total: 0</div>
+            </div>
+            <div class="grid-row" data-row="3">
+                <div class="row-header">Row 3</div>
+                <div class="row-content"></div>
+                <div class="row-total">Total: 0</div>
+            </div>
+            <div class="grid-row" data-row="4">
+                <div class="row-header">Row 4</div>
+                <div class="row-content"></div>
+                <div class="row-total">Total: 0</div>
+            </div>
+            <div class="grid-row" data-row="5">
+                <div class="row-header">Row 5</div>
+                <div class="row-content"></div>
+                <div class="row-total">Total: 0</div>
+            </div>
+        </div>
+
+        <!-- Fraction Bars with Categories -->
+        <div class="fraction-container">
+            <h2>Fraction Bars</h2>
+            <div class="fraction-category">
+                <h3>Basic Fractions</h3>
+                <!-- Fraction bars will be generated dynamically -->
+            </div>
+            <div class="fraction-category">
+                <h3>Advanced Fractions</h3>
+                <!-- Advanced fraction bars can be added here -->
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <button id="eraseButton" title="Erase">🧹 Erase</button>
+            <button id="resetButton" title="Reset">🔄 Reset</button>
+            <button id="infoButton" title="Info">ℹ️ Info</button>
+        </div>
+
+        <!-- Fraction Sum Display (Optional) -->
+        <div id="fractionSum">Overall Total: 0</div>
+    </section>
+
+    <!-- Modal for Information -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>How to Play</h2>
+            <p>Drag and drop the fraction bars into the rows. Try to make the total in each row equal to 1 (a whole). Use the Erase button to remove fractions individually or the Reset button to start over.</p>
+            <h3>Understanding Fractions</h3>
+            <p>The numerator (top number) indicates how many parts you have, while the denominator (bottom number) indicates how many equal parts the whole is divided into.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
